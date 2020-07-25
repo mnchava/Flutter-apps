@@ -1,11 +1,5 @@
 # tictac
 
-A new Flutter application.
+A two-player game of tic tac toe built with Flutter.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-[![Tic Tac Meow Demo](https://drive.google.com/file/d/1cr840lDxcBink5s_8nPuv6yeVYIAPRpp/view?usp=sharing)](https://youtu.be/b-EZjP_29po "Tic Tac Meow Demo- Click to Watch!")
+[![Tic Tac Meow Demo](https://lh5.googleusercontent.com/es2_1yWD4YnI4IQ8Dsb1HivnSh099uCPFxDGTmuyt1Jsj23UwEgUIgyCF1e1zjdQUEpcm4i2pW4bHDRAaKor=s0](https://youtu.be/b-EZjP_29po "Tic Tac Meow Demo- Click to Watch!")
