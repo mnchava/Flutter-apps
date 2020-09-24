@@ -1,6 +1,4 @@
-import 'dart:math';
 import 'dart:ui';
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'constantes.dart';
@@ -14,55 +12,12 @@ class Grafo extends StatefulWidget {
   double height = 250;
   double centerX;
   double centerY;
-  double radio;
   List<Coord> posicion;
 
-  Grafo(this.nodos, {this.radio = 100, this.arcos}) {
+  Grafo(this.nodos, {this.arcos}) {
     centerX = width / 2;
     centerY = height / 2;
-    switch (nodos.length) {
-      case 6:
-        posicion = [
-          Coord(-1 * radio, 0), //1
-          Coord(-0.5 * radio, -0.5 * radio * (sqrt(3))), //2
-          Coord(0.5 * radio, -0.5 * radio * (sqrt(3))), //3
-          Coord(radio, 0), //4
-          Coord(0.5 * radio, 0.5 * radio * (sqrt(3))), //5
-          Coord(-0.5 * radio, 0.5 * radio * (sqrt(3))), //6
-        ];
-        break;
-      case 5:
-        posicion = [
-          Coord(-0.95 * radio, -0.31 * radio),
-          Coord(0, -1 * radio),
-          Coord(0.95 * radio, -0.31 * radio),
-          Coord(0.59 * radio, 0.81 * radio),
-          Coord(-0.59 * radio, 0.81 * radio),
-        ];
-        break;
-      case 4:
-        posicion = [
-          Coord(-1 * radio, -1 * radio),
-          Coord(1 * radio, -1 * radio),
-          Coord(1 * radio, 1 * radio),
-          Coord(-1 * radio, 1 * radio),
-        ];
-        break;
-      case 3:
-        posicion = [
-          Coord(0, -1 * radio * 3 / 4),
-          Coord(1 * radio, 1 * radio),
-          Coord(-1 * radio, 1 * radio),
-        ];
-        break;
-      case 2:
-        posicion = [
-          Coord(-1 * radio, 0),
-          Coord(radio, 0),
-        ];
-        break;
-      default:
-    }
+    posicion = posiciones[nodos.length];
   }
 
   @override
@@ -136,12 +91,10 @@ class LinePainter extends CustomPainter {
 
 // ignore: must_be_immutable
 class Nodo extends StatefulWidget {
-  int id;
   Color color;
   String nombre;
-  bool isEnabled = true;
 
-  Nodo(this.id, this.nombre, this.color);
+  Nodo(this.nombre, this.color);
 
   @override
   _NodoState createState() => _NodoState();
@@ -159,10 +112,8 @@ class _NodoState extends State<Nodo> {
       height: 60,
       alignment: Alignment.center,
       padding: EdgeInsets.all(5),
-      child: AutoSizeText(
+      child: Text(
         widget.nombre,
-        minFontSize: 8,
-        maxFontSize: 15,
         style: TextStyle(
           fontWeight: FontWeight.bold,
         ),
@@ -251,11 +202,9 @@ class TablaMatriz extends StatefulWidget {
   MatrizAdyacencia fuente;
   List<Nodo> nodos;
   List arcos;
-  List matriz;
 
   TablaMatriz(this.nodos, this.arcos) {
     fuente = MatrizAdyacencia(nodos, arcos);
-    matriz = fuente.matriz;
   }
 
   @override
@@ -277,9 +226,9 @@ class _TablaMatrizState extends State<TablaMatriz> {
 
     nodos = widget.nodos;
 
-    for (int j = 0; j < widget.matriz.length; j++) {
-      for (int i = 0; i < widget.matriz[j].length; i++) {
-        elementos.add(widget.matriz[j][i]);
+    for (int j = 0; j < widget.fuente.matriz.length; j++) {
+      for (int i = 0; i < widget.fuente.matriz[j].length; i++) {
+        elementos.add(widget.fuente.matriz[j][i]);
       }
     }
   }
@@ -308,6 +257,7 @@ class _TablaMatrizState extends State<TablaMatriz> {
                   return Text(
                     (index + 2).toString(),
                     style: TextStyle(
+                      color: colores[index + 1],
                       fontWeight: seleccionados[index]
                           ? FontWeight.bold
                           : FontWeight.normal,
@@ -333,6 +283,7 @@ class _TablaMatrizState extends State<TablaMatriz> {
           ],
         ),
         //tabla
+        Text('Toca para agregar o quitar aristas'),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -367,6 +318,7 @@ class _TablaMatrizState extends State<TablaMatriz> {
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: numNodos,
                 ),
+                itemCount: numNodos * numNodos,
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     child: Container(
@@ -402,19 +354,13 @@ class _TablaMatrizState extends State<TablaMatriz> {
                     },
                   );
                 },
-                itemCount: numNodos * numNodos,
               ),
             ),
           ],
         ),
-        Grafo(
-          nodos,
-          radio: 80,
-          arcos: arcos,
-        ),
+        Grafo(nodos, arcos: arcos),
         Container(
           height: 120,
-          width: 220,
           alignment: Alignment.center,
           child: RichText(
             softWrap: true,
@@ -426,7 +372,7 @@ class _TablaMatrizState extends State<TablaMatriz> {
               children: [
                 TextSpan(
                     text: 'Práctica Grafos', style: TextStyle(fontSize: 30)),
-                TextSpan(text: '\nInteligencia Artificial'),
+                TextSpan(text: '\nInteligencia Artificial | 5ºM'),
                 TextSpan(text: '\nJesus Salvador Uribe Ferrer'),
                 TextSpan(text: '\n17110306'),
               ],

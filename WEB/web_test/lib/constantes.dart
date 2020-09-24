@@ -1,6 +1,9 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
-List prohibidos = [6, 12, 18, 24, 30, 13, 19, 25, 31, 20, 26, 32, 27, 33, 34];
+import 'grafos.dart';
+
 List<Color> colores = [
   Color(0xFF4a4e4d),
   Color(0xFF4ab3a5),
@@ -9,14 +12,9 @@ List<Color> colores = [
   Color(0xFFff8a70),
   Color(0xFF7d6aac)
 ];
-List<String> nombres = [
-  '0',
-  '1',
-  '2',
-  '3',
-  '4',
-  '5',
-];
+
+List<String> nombres = ['0', '1', '2', '3', '4', '5'];
+
 var equivalente = {
   6: {
     0: 0,
@@ -118,4 +116,37 @@ var equivalente = {
     2: 1,
     3: 3,
   },
+};
+
+var posiciones = {
+  6: [
+    Coord(-80, 0),
+    Coord(-0.5 * 80, -0.5 * 80 * (sqrt(3))),
+    Coord(0.5 * 80, -0.5 * 80 * (sqrt(3))),
+    Coord(80, 0),
+    Coord(0.5 * 80, 0.5 * 80 * (sqrt(3))),
+    Coord(-0.5 * 80, 0.5 * 80 * (sqrt(3))),
+  ],
+  5: [
+    Coord(-0.95 * 80, -0.3 * 80),
+    Coord(0, -80),
+    Coord(0.95 * 80, -0.3 * 80),
+    Coord(0.59 * 80, 0.8 * 80),
+    Coord(-0.59 * 80, 0.8 * 80),
+  ],
+  4: [
+    Coord(-80, -80),
+    Coord(80, -80),
+    Coord(80, 80),
+    Coord(-80, 80),
+  ],
+  3: [
+    Coord(0, -80 * 3 / 4),
+    Coord(80, 80),
+    Coord(-80, 80),
+  ],
+  2: [
+    Coord(-80, 0),
+    Coord(80, 0),
+  ]
 };

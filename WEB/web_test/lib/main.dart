@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Grafos',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.amber,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(title: 'Grafos'),
@@ -31,20 +31,14 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   List<Nodo> nodos;
   List arcos;
-  MatrizAdyacencia matriz;
 
   @override
   void initState() {
     super.initState();
 
-    nodos = [
-      Nodo(0, nombres[0], colores[0]),
-      Nodo(1, nombres[1], colores[1]),
-      Nodo(2, nombres[2], colores[2]),
-      Nodo(3, nombres[3], colores[3]),
-      Nodo(4, nombres[4], colores[4]),
-      Nodo(5, nombres[5], colores[5]),
-    ];
+    nodos = List.generate(6, (index) {
+      return Nodo(nombres[index], colores[index]);
+    });
     arcos = [];
   }
 
