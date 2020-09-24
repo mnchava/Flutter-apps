@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "786307372535",
+    "firebase_url": "https://bus-map-fc44a.firebaseio.com",
+    "project_id": "bus-map-fc44a",
+    "storage_bucket": "bus-map-fc44a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:786307372535:android:7317021da26891ee6a8af2",
+        "android_client_info": {
+          "package_name": "com.example.bus_map"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "786307372535-v8hul37cqngi5rr8qbgft6ju7ebi89aj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBqMLGMnWlnpAcageYB82vb0_LwxaCZ6Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "786307372535-v8hul37cqngi5rr8qbgft6ju7ebi89aj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
