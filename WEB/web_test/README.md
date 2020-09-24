@@ -1,16 +1,18 @@
 # web_test
 
-A new Flutter project.
 
-## Getting Started
+Jesus Salvador Uribe Ferrer 5ºM 17110306
 
-This project is a starting point for a Flutter application.
+Práctica de Grafos
+Inteligencia Artificial
 
-A few resources to get you started if this is your first Flutter project:
+Aplicación web hecha con Flutter.
+Permite visualizar y editar un grafo modificando su matriz de adyacencia.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+El codigo fuente está divido en tres archivos.
+- main.dart contiene solo el marco visual de la aplicación.
+- grafos.dart contiene las clases de Nodo, Arco, Grafo, y Matriz de Adyacencia.
+- constantes.dart contiene datos necesarios para el funcinamiento de las clases grafo y matriz.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Puede usar la aplicación en este link:
+[https://web-test-f3fbf.web.app/#/](https://web-test-f3fbf.web.app/#/)
